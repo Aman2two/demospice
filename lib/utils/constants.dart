@@ -10,3 +10,6 @@ const String selectSize = "SELECT SIZE";
 const String selectChart = "SIZE CHART";
 const String wishListText = "WISHLIST";
 const String addToBag =  "ADD TO BAG";
+const String appName =  "Spice Money Test";
+const String apiUrl =  "https://api.jsonbin.io/b/60141159ef99c57c734b89aa";
+const String dataObject =  "data";
