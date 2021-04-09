@@ -100,18 +100,18 @@ class _ItemsPageState extends State<ItemsPage> {
                         Image.asset(
                           sortImagePath,
                           width: 24,
-                          color: Colors.grey,
+                          color: Colors.grey[700],
                         ),
-                        Text(textSort),
+                        Text(textSort,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w600),),
                       ],
                     ),
                     Row(
                       children: [
                         Icon(
                           Icons.filter_alt,
-                          color: Colors.grey,
+                          color: Colors.grey[600],
                         ),
-                        Text(textFilter),
+                        Text(textFilter,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w600)),
                       ],
                     )
                   ],
