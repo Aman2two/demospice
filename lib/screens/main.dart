@@ -1,5 +1,5 @@
-import 'package:demo/network/ApiCall.dart';
-import 'package:demo/screens/ItemsPage.dart';
+import 'package:demo/network/api_call.dart';
+import 'package:demo/screens/main_screen.dart';
 import 'package:demo/screens/detail_screen.dart';
 import 'package:demo/Models/model.dart';
 import 'package:demo/Models/controller.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/WidgetUtil.dart';
+import '../utils/widget_util.dart';
 
 void main() {
   runApp(MyApp());

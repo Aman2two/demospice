@@ -1,13 +1,16 @@
 // This class contains the first page of the application.
 import 'package:demo/Models/controller.dart';
 import 'package:demo/Models/model.dart';
-import 'package:demo/network/ApiCall.dart';
+import 'package:demo/network/api_call.dart';
 import 'package:demo/screens/detail_screen.dart';
-import 'package:demo/utils/WidgetUtil.dart';
+import 'package:demo/utils/widget_util.dart';
+import 'package:demo/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+
+// This widget contains the first page with list of items
 class ItemsPage extends StatefulWidget {
   ItemsPage({Key key}) : super(key: key);
 
@@ -26,16 +29,14 @@ class _ItemsPageState extends State<ItemsPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Consumer is used to update the ui when value of data changes in controller class where list is updated.
     return Consumer<ItemController>(builder: (context, controller, child) {
       return WillPopScope(
-          onWillPop: () {
-
-          },
+          onWillPop: () {},
           child: Scaffold(
             appBar: PreferredSize(
                 preferredSize: Size.fromHeight(70.0),
-                child:
-                    customAppBar("US POLO TAILORED FIT LINEN", true, context)),
+                child: customAppBar(mainPageHeading, true, context)),
             body: SafeArea(
               child: Center(
                 child: Column(
@@ -49,7 +50,7 @@ class _ItemsPageState extends State<ItemsPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "FIT LINEN SHIRTS",
+                              mainPageSubHeading,
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
@@ -71,6 +72,7 @@ class _ItemsPageState extends State<ItemsPage> {
                       child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 0.0),
                           child: controller.dataList.isEmpty
+                              // Show loader if list is empty else show the list items
                               ? Center(
                                   child: CircularProgressIndicator(
                                   backgroundColor: Colors.black12,
@@ -83,6 +85,7 @@ class _ItemsPageState extends State<ItemsPage> {
                 ),
               ),
             ),
+            // This is used to show the bottom sort and filter buttons
             bottomNavigationBar: BottomAppBar(
                 child: Container(
               height: 60,
@@ -92,11 +95,11 @@ class _ItemsPageState extends State<ItemsPage> {
                   Row(
                     children: [
                       Image.asset(
-                        "lib/assets/sort.png",
+                        sortImagePath,
                         width: 24,
                         color: Colors.grey,
                       ),
-                      Text("SORT"),
+                      Text(textSort),
                     ],
                   ),
                   Row(
@@ -105,7 +108,7 @@ class _ItemsPageState extends State<ItemsPage> {
                         Icons.filter_alt,
                         color: Colors.grey,
                       ),
-                      Text("FILTER"),
+                      Text(textFilter),
                     ],
                   )
                 ],
@@ -118,7 +121,6 @@ class _ItemsPageState extends State<ItemsPage> {
 }
 
 // This Widget have all the list items
-
 class MainChild extends StatelessWidget {
   final List<ItemModel> items;
 
@@ -207,7 +209,7 @@ class SingleItem extends StatelessWidget {
                                     width: 3,
                                   ),
                                   Text(
-                                    "${data.discountPercentage} OFF",
+                                    "${data.discountPercentage} $textOff",
                                     style: TextStyle(
                                         fontSize: 13, color: Colors.orange),
                                     textAlign: TextAlign.center,

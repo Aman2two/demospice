@@ -2,6 +2,11 @@ import 'package:demo/Models/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'constants.dart';
+
+
+
+// UI of App bar used in both screen
 Widget customAppBar(String text, bool showSubHeading, BuildContext context) =>
     AppBar(
       toolbarHeight: 70.0,
@@ -15,7 +20,7 @@ Widget customAppBar(String text, bool showSubHeading, BuildContext context) =>
           ),
           showSubHeading
               ? Text(
-                  "1 items",
+                  appBarSubHead,
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.grey,
@@ -55,6 +60,8 @@ Widget customAppBar(String text, bool showSubHeading, BuildContext context) =>
         SizedBox(width: 10),
       ],
     );
+
+// UI of image shown in both screens
 
 Widget imageWidget(ItemModel itemModel) => Image.network(
       itemModel.imageURL,

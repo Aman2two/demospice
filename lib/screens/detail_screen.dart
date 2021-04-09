@@ -1,10 +1,12 @@
 import 'package:demo/Models/model.dart';
+import 'package:demo/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/WidgetUtil.dart';
+import '../utils/widget_util.dart';
 
 class DetailScreen extends StatelessWidget {
+  // This will contain info of data which is clicked on first screen
   final ItemModel data;
 
   const DetailScreen({Key key, this.data}) : super(key: key);
@@ -13,21 +15,28 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: customAppBar(data.name, false,context),
+        appBar: customAppBar(data.name, false, context),
         body: Container(
-          color: Colors.grey[200],
+          color: Colors.grey[100],
           child: ListView(
             children: [
+              //Used For showing image
               imageWidget(data),
+              //Used for showing price and discount values
               _priceChild(),
               SizedBox(height: 15),
+              // Used for showing best price info
               _detailDescChild(),
               SizedBox(height: 15),
+              // Used for showing return info
               _exchangeDetailChild(),
               SizedBox(height: 15),
+              // Used for showing different sizes and add to bag and wishlist button
               _sizeChild(),
               SizedBox(height: 15),
+              // Used for showing description of product
               _descriptionWidget(),
+              // Used for spacing between widgets
               SizedBox(height: 15),
             ],
           ),
@@ -80,7 +89,7 @@ class DetailScreen extends StatelessWidget {
                         width: 3,
                       ),
                       Text(
-                        "(${data.discountPercentage} OFF)",
+                        "(${data.discountPercentage} $textOff)",
                         style: TextStyle(fontSize: 16, color: Colors.orange),
                         textAlign: TextAlign.center,
                       ),
@@ -90,7 +99,7 @@ class DetailScreen extends StatelessWidget {
               height: 5.0,
             ),
             Text(
-              "inclusive of all taxes",
+              inclusiveText,
               style: TextStyle(
                   color: Colors.green[600], fontWeight: FontWeight.bold),
             ),
@@ -127,7 +136,7 @@ class DetailScreen extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16.0,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w500),
                 ),
               ],
             )),
@@ -142,14 +151,14 @@ class DetailScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "SELECT SIZE",
+                  selectSize,
                   style: TextStyle(
                       fontSize: 15.0,
                       color: Colors.grey,
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  "SIZE CHART",
+                  selectChart,
                   style: TextStyle(
                       fontSize: 15.0,
                       color: Colors.pinkAccent,
@@ -179,7 +188,7 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         Icon(Icons.favorite_border),
                         Text(
-                          "WISHLIST",
+                          wishListText,
                           style:
                               TextStyle(fontSize: 19.0, color: Colors.black87),
                         ),
@@ -200,7 +209,7 @@ class DetailScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                         Text(
-                          "ADD TO BAG",
+                          addToBag,
                           style: TextStyle(fontSize: 19.0, color: Colors.white),
                         ),
                       ],
@@ -224,7 +233,7 @@ class DetailScreen extends StatelessWidget {
               padding: EdgeInsets.all(7.0),
               child: Text(text,
                   style:
-                      TextStyle(fontWeight: FontWeight.w700, fontSize: 21.0))),
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 21.0))),
         ),
       );
 
