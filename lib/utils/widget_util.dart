@@ -32,7 +32,7 @@ Widget customAppBar(String text, bool showSubHeading, BuildContext context) =>
       leading: GestureDetector(
         child: Icon(
           Icons.arrow_back,
-          color: Colors.black54,
+          color: Colors.grey[700],
           size: 30.0,
         ),
         onTap: () {
@@ -42,19 +42,19 @@ Widget customAppBar(String text, bool showSubHeading, BuildContext context) =>
       actions: [
         Icon(
           Icons.search,
-          color: Colors.black54,
+          color: Colors.grey[700],
           size: 30.0,
         ),
         SizedBox(width: 10),
         Icon(
           Icons.favorite_border,
-          color: Colors.black54,
+          color: Colors.grey[700],
           size: 30.0,
         ),
         SizedBox(width: 10),
         Icon(
           Icons.shopping_bag_outlined,
-          color: Colors.black54,
+          color: Colors.grey[700],
           size: 30.0,
         ),
         SizedBox(width: 10),
@@ -68,8 +68,8 @@ Widget imageWidget(ItemModel itemModel) => Image.network(
       errorBuilder: (context, object, sta) {
         return Center(
             child: Icon(
-          Icons.image,
-          size: 60.0,
+          Icons.image_outlined,
+          size: 100.0,
           color: Colors.grey,
         ));
       },

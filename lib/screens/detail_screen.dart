@@ -161,7 +161,7 @@ class DetailScreen extends StatelessWidget {
                   selectChart,
                   style: TextStyle(
                       fontSize: 15.0,
-                      color: Colors.pinkAccent,
+                      color: Colors.pink[600],
                       fontWeight: FontWeight.w700),
                 ),
               ],
@@ -198,7 +198,7 @@ class DetailScreen extends StatelessWidget {
                 ),
                 RaisedButton(
                   onPressed: () {},
-                  color: Colors.pinkAccent,
+                  color: Colors.pink[400],
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
