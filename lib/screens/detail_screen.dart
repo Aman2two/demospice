@@ -13,7 +13,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: customAppBar(data.name, false),
+        appBar: customAppBar(data.name, false,context),
         body: Container(
           color: Colors.grey[200],
           child: ListView(

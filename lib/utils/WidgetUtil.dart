@@ -1,7 +1,9 @@
 import 'package:demo/Models/model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-Widget customAppBar(String text, bool showBottom) => AppBar(
+Widget customAppBar(String text, bool showSubHeading, BuildContext context) =>
+    AppBar(
       toolbarHeight: 70.0,
       brightness: Brightness.light,
       title: Column(
@@ -11,7 +13,7 @@ Widget customAppBar(String text, bool showBottom) => AppBar(
             text,
             style: TextStyle(fontSize: 16),
           ),
-          showBottom
+          showSubHeading
               ? Text(
                   "1 items",
                   style: TextStyle(
@@ -22,10 +24,15 @@ Widget customAppBar(String text, bool showBottom) => AppBar(
               : SizedBox()
         ],
       ),
-      leading: Icon(
-        Icons.arrow_back,
-        color: Colors.black54,
-        size: 30.0,
+      leading: GestureDetector(
+        child: Icon(
+          Icons.arrow_back,
+          color: Colors.black54,
+          size: 30.0,
+        ),
+        onTap: () {
+          showSubHeading ? SystemNavigator.pop() : Navigator.pop(context);
+        },
       ),
       actions: [
         Icon(
